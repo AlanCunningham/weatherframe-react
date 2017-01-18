@@ -9,8 +9,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Clock/>
-          <Weather/>
+          <div className="top">
+              Top
+          </div>
+          <div className="middle">
+              <Clock/>
+              <Weather/>
+          </div>
+          <div className="bottom">
+              Bottom
+          </div>
       </div>
     );
   }

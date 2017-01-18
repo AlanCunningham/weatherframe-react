@@ -1,10 +1,24 @@
 body {
-  background-color: #000;
   color: white;
+  background: white
 }
 
-.App {
-  text-align: center;
+.App > div {
+  display: block;
+  position: relative;
+  padding: 4ex 0;
+  background: black;
+}
+
+.top {
+}
+
+.middle {
+  margin-top: 3ex;
+}
+
+.bottom {
+  margin-top: 3ex;
 }
 
 .Clock {

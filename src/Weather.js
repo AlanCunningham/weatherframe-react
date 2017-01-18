@@ -79,14 +79,14 @@ class Weather extends Component {
         return (
             <div className="weather">
                 <div className="weather-summary">
-                    <p>{this.state.timezone}</p>
-                    <p>{this.state.summary}</p>
+                    {/*<p>{this.state.timezone}</p>*/}
+                    {/*<p>{this.state.summary}</p>*/}
                     <p></p>
                 </div>
                 <div className="temperature">
-                    <h4>Current temp: {this.state.temp}</h4>
-                    <span>Max:{this.state.temp_max} | </span>
-                    <span>Min: {this.state.temp_min}</span>
+                    {/*<h4>Current temp: {this.state.temp}</h4>*/}
+                    {/*<span>Max:{this.state.temp_max} | </span>*/}
+                    {/*<span>Min: {this.state.temp_min}</span>*/}
                 </div>
             </div>
         );
