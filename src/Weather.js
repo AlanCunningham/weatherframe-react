@@ -68,6 +68,8 @@ class Weather extends Component {
                     temp_max: weather.daily.data[0].apparentTemperatureMax,
                     temp_min: weather.daily.data[0].apparentTemperatureMin,
                     temp: weather.currently.apparentTemperature,
+                    rain_chance: weather.daily.data[0].precipProbability * 100,
+                    hourly: weather.hourly.data
                 });
             })
             .catch(res => {
@@ -75,19 +77,35 @@ class Weather extends Component {
             })
     }
 
+    hourly_forecast() {
+        return (
+            <div>
+            </div>
+        )
+    }
+
     render () {
         return (
             <div className="weather">
                 <div className="weather-summary">
-                    {/*<p>{this.state.timezone}</p>*/}
-                    {/*<p>{this.state.summary}</p>*/}
-                    <p></p>
+                    <p>{this.state.summary}</p>
                 </div>
-                <div className="temperature">
-                    {/*<h4>Current temp: {this.state.temp}</h4>*/}
-                    {/*<span>Max:{this.state.temp_max} | </span>*/}
-                    {/*<span>Min: {this.state.temp_min}</span>*/}
+                <div className="middle-row">
+                    <div className="temperature">
+                        <h1 className="current-temp">{Math.round(this.state.temp)}°</h1>
+                        <span className="min-max-temp">
+                            {Math.round(this.state.temp_max)}°  |  {Math.round(this.state.temp_min)}°
+                        </span>
+                    </div>
+                    <div className="weather-icon">
+                        <h1>Icon</h1>
+                    </div>
+                    <div className="rain-chance">
+                        <p>Chance of rain:</p>
+                        <h1>{this.state.rain_chance}%</h1>
+                    </div>
                 </div>
+
             </div>
         );
     }

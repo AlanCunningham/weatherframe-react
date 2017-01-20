@@ -10,10 +10,9 @@ class App extends Component {
     return (
       <div className="App">
           <div className="top">
-              Top
+              <Clock/>
           </div>
           <div className="middle">
-              <Clock/>
               <Weather/>
           </div>
           <div className="bottom">

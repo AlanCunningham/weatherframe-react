@@ -1,29 +1,55 @@
 body {
   color: white;
-  background: white
 }
 
-.App > div {
-  display: block;
-  position: relative;
-  padding: 4ex 0;
-  background: black;
-}
 
 .top {
+  background: #378bbf;
+  box-shadow: 0 5px 5px 0 #d0d0d0;
+  padding: 2ex 0;
+  color: white;
+}
+
+.Clock {
+  font-size: 150%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .middle {
-  margin-top: 3ex;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  color: black;
 }
+
+.middle .weather {
+  width: 100%;
+}
+
+.middle .weather-summary {
+  font-size: 200%;
+}
+
+.middle .middle-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.middle .current-temp {
+  font-size: 150%;
+}
+
 
 .bottom {
   margin-top: 3ex;
 }
 
-.Clock {
-  font-size: 150%;
-}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

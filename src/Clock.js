@@ -31,10 +31,25 @@ class Clock extends Component {
         });
     }
 
+    getDay(day_number) {
+        var weekdays = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ]
+        return weekdays[day_number];
+    }
+
     render() {
         return (
             <div className="Clock">
-                <h1>{this.state.date.toLocaleTimeString('en-GB', { hour12: false })}</h1>
+                <span>{this.getDay(this.state.date.getDay())}</span>
+                <span>{this.state.date.toLocaleTimeString('en-GB', { hour12: false })}</span>
+                <span>{this.state.date.toLocaleDateString('en-GB')}</span>
             </div>
         );
     }
