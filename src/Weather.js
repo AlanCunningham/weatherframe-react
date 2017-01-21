@@ -5,6 +5,7 @@
 import React, { Component} from 'react';
 import 'whatwg-fetch';
 import fetchJsonp from 'fetch-jsonp';
+import Skycons from 'react-skycons';
 
 class Weather extends Component {
 
@@ -14,6 +15,7 @@ class Weather extends Component {
         this.state = {
             timezone: null,
             summary: null,
+            daily_icon: null,
             temp_max: null,
             temp_min: null,
             temp: null
@@ -65,6 +67,7 @@ class Weather extends Component {
                 this.setState({
                     timezone: weather.timezone,
                     summary: weather.hourly.summary,
+                    daily_icon: weather.daily.icon.toUpperCase(), // Requires uppercase for Skycons
                     temp_max: weather.daily.data[0].apparentTemperatureMax,
                     temp_min: weather.daily.data[0].apparentTemperatureMin,
                     temp: weather.currently.apparentTemperature,
@@ -98,7 +101,7 @@ class Weather extends Component {
                         </span>
                     </div>
                     <div className="weather-icon">
-                        <h1>Icon</h1>
+                        <Skycons color='black' icon={this.state.daily_icon} />
                     </div>
                     <div className="rain-chance">
                         <p>Chance of rain:</p>
