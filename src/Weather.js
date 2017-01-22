@@ -64,10 +64,17 @@ class Weather extends Component {
             })
             .then(res => {
                 var weather = res;
+
+                // For some reason, the skycons-react package requires uppercase
+                // and underscores instead of hiphens, despite the Darksky API
+                // not returning it in this format.
+                var daily_icon = weather.daily.icon.toUpperCase();
+                daily_icon = daily_icon.replace(/-/g , "_");
+
                 this.setState({
                     timezone: weather.timezone,
                     summary: weather.hourly.summary,
-                    daily_icon: weather.daily.icon.toUpperCase(), // Requires uppercase for Skycons
+                    daily_icon: daily_icon,
                     temp_max: weather.daily.data[0].apparentTemperatureMax,
                     temp_min: weather.daily.data[0].apparentTemperatureMin,
                     temp: weather.currently.apparentTemperature,
