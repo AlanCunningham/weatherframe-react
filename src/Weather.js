@@ -64,12 +64,7 @@ class Weather extends Component {
             })
             .then(res => {
                 var weather = res;
-
-                // For some reason, the skycons-react package requires uppercase
-                // and underscores instead of hiphens, despite the Darksky API
-                // not returning it in this format.
-                var daily_icon = weather.daily.icon.toUpperCase();
-                daily_icon = daily_icon.replace(/-/g , "_");
+                var daily_icon = this.get_fixed_icon(weather.daily.icon);
 
                 this.setState({
                     timezone: weather.timezone,
@@ -79,7 +74,8 @@ class Weather extends Component {
                     temp_min: weather.daily.data[0].apparentTemperatureMin,
                     temp: weather.currently.apparentTemperature,
                     rain_chance: weather.daily.data[0].precipProbability * 100,
-                    hourly: weather.hourly.data
+                    hourly: weather.hourly.summary,
+                    hourly_data: weather.hourly.data
                 });
             })
             .catch(res => {
@@ -88,10 +84,46 @@ class Weather extends Component {
     }
 
     hourly_forecast() {
+        var data = this.state.hourly_data;
+        var hours = [];
+        if(data) {
+            for(var i = 0; i < 10; i++) {
+                var date = new Date(data[i].time * 1000);
+                var hour = date.getHours();
+                // Pad
+                if (hour < 10) {
+                    hour = "0" + hour
+                }
+
+                hours.push(
+                    <div className={data[i].icon}>
+                        <div className="hourly-time">
+                            {hour}:00
+                        </div>
+                        <div className="hourly-icon">
+                            <Skycons color='black' icon={this.get_fixed_icon(data[i].icon)}/>
+                        </div>
+                        <div className="hourly-temp">
+                            {Math.round(data[i].apparentTemperature)}°
+                        </div>
+                    </div>
+                )
+            }
+        }
         return (
-            <div>
-            </div>
+            hours
         )
+    }
+
+    // For some reason, the skycons-react package requires uppercase
+    // and underscores instead of hiphens, despite the Darksky API
+    // not returning it in this format.
+    get_fixed_icon(icon) {
+        return icon.toUpperCase().replace(/-/g , "_");
+    }
+
+    get_icon_colour(icon) {
+
     }
 
     render () {
@@ -115,7 +147,9 @@ class Weather extends Component {
                         <h1>{this.state.rain_chance}%</h1>
                     </div>
                 </div>
-
+                <div className="hourly-timeline">
+                  {this.hourly_forecast()}
+                </div>
             </div>
         );
     }
