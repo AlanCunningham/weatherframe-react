@@ -87,7 +87,7 @@ class Weather extends Component {
         var data = this.state.hourly_data;
         var hours = [];
         if(data) {
-            for(var i = 0; i < 10; i++) {
+            for(var i = 0; i < 12; i++) {
                 var date = new Date(data[i].time * 1000);
                 var hour = date.getHours();
                 // Pad
@@ -95,13 +95,26 @@ class Weather extends Component {
                     hour = "0" + hour
                 }
 
+                // Only animate certain icons
+                var animated_icons = [
+                    'rain',
+                    'snow',
+                    'wind',
+                    'sleet'
+                ]
+                var is_animated = !animated_icons.indexOf(data[i].icon);
+
                 hours.push(
                     <div className={data[i].icon}>
                         <div className="hourly-time">
                             {hour}:00
                         </div>
                         <div className="hourly-icon">
-                            <Skycons color='black' icon={this.get_fixed_icon(data[i].icon)}/>
+                            <Skycons
+                                color='white'
+                                icon={this.get_fixed_icon(data[i].icon)}
+                                autoplay={is_animated}
+                            />
                         </div>
                         <div className="hourly-temp">
                             {Math.round(data[i].apparentTemperature)}°
@@ -134,7 +147,7 @@ class Weather extends Component {
                 </div>
                 <div className="middle-row">
                     <div className="temperature">
-                        <h1 className="current-temp">{Math.round(this.state.temp)}°</h1>
+                        <span className="current-temp">{Math.round(this.state.temp)}°</span>
                         <span className="min-max-temp">
                             {Math.round(this.state.temp_max)}°  |  {Math.round(this.state.temp_min)}°
                         </span>
@@ -143,8 +156,8 @@ class Weather extends Component {
                         <Skycons color='black' icon={this.state.daily_icon} />
                     </div>
                     <div className="rain-chance">
-                        <p>Chance of rain:</p>
-                        <h1>{this.state.rain_chance}%</h1>
+                        <div className="chance-text">Chance of rain:</div>
+                        <div className="chance-percentage">{this.state.rain_chance}%</div>
                     </div>
                 </div>
                 <div className="hourly-timeline">

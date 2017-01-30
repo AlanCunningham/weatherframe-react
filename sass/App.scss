@@ -1,5 +1,6 @@
 body {
     color: white;
+    font-family: "Roboto";
 }
 
 
@@ -19,47 +20,107 @@ body {
 .middle {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     position: relative;
     text-align: center;
     color: black;
-
-
-    .weather {
-        width: 100%;
-    }
+    margin: 0 3ex;
 
     .weather-summary {
       font-size: 200%;
     }
 
     .middle-row {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    .current-temp {
-      font-size: 150%;
+        .weather-icon {
+            width: 35%;
+        }
+
+        .current-temp {
+            color: #0288d1;
+            font-size: 3.5rem;
+        }
+
+        .min-max-temp {
+            font-size: 1.5rem;
+        }
+
+        .chance-text {
+            font-size: 1.5rem;
+        }
+
+        .chance-percentage {
+            color: #0288d1;
+            font-size: 3rem;
+        }
     }
 
 }
 
 .hourly-timeline {
+    margin-top: 4ex;
 
     > div {
         display: inline-block;
+        font-size: 95%;
+    }
+
+    > div {
+        &:first-child {
+            border-radius: 7px 0px 0px 7px;
+        }
+        &:last-child {
+            border-radius: 0px 7px 7px 0px;
+        }
     }
 
     .hourly-icon {
-        width: 5em;
+        padding: 1ex 0;
+        width: 4em;
+    }
+
+    .clear-day {
+        background: #ffb300;
+    }
+
+    .clear-night,
+    .partly-cloudy-night {
+        background: #0d47a1;
+        color: white;
+    }
+
+    .partly-cloudy-day {
+        background: #ffb300;
+    }
+
+    .rain,
+    .sleet {
+        background: #0288d1;
+        color: white;
+    }
+
+    .snow {
+        background: #90a4ae;
+    }
+
+    .fog {
+        background: #757575;
+        color: white;
+    }
+
+    .cloudy,
+    .wind {
+        background: #ffb300;
     }
 }
 
 
 .bottom {
-    margin-top: 3ex;
+    margin-top: 5ex;
 }
 
 

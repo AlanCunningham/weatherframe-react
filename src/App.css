@@ -1,5 +1,6 @@
 body {
-  color: white; }
+  color: white;
+  font-family: "Roboto"; }
 
 .top {
   background: #378bbf;
@@ -15,29 +16,66 @@ body {
 .middle {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   position: relative;
   text-align: center;
-  color: black; }
-  .middle .weather {
-    width: 100%; }
+  color: black;
+  margin: 0 3ex; }
   .middle .weather-summary {
     font-size: 200%; }
   .middle .middle-row {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center; }
-  .middle .current-temp {
-    font-size: 150%; }
+    .middle .middle-row .weather-icon {
+      width: 35%; }
+    .middle .middle-row .current-temp {
+      color: #0288d1;
+      font-size: 3.5rem; }
+    .middle .middle-row .min-max-temp {
+      font-size: 1.5rem; }
+    .middle .middle-row .chance-text {
+      font-size: 1.5rem; }
+    .middle .middle-row .chance-percentage {
+      color: #0288d1;
+      font-size: 3rem; }
 
-.hourly-timeline > div {
-  display: inline-block; }
-.hourly-timeline .hourly-icon {
-  width: 5em; }
+.hourly-timeline {
+  margin-top: 4ex; }
+  .hourly-timeline > div {
+    display: inline-block;
+    font-size: 95%; }
+  .hourly-timeline > div:first-child {
+    border-radius: 7px 0px 0px 7px; }
+  .hourly-timeline > div:last-child {
+    border-radius: 0px 7px 7px 0px; }
+  .hourly-timeline .hourly-icon {
+    padding: 1ex 0;
+    width: 4em; }
+  .hourly-timeline .clear-day {
+    background: #ffb300; }
+  .hourly-timeline .clear-night,
+  .hourly-timeline .partly-cloudy-night {
+    background: #0d47a1;
+    color: white; }
+  .hourly-timeline .partly-cloudy-day {
+    background: #ffb300; }
+  .hourly-timeline .rain,
+  .hourly-timeline .sleet {
+    background: #0288d1;
+    color: white; }
+  .hourly-timeline .snow {
+    background: #90a4ae; }
+  .hourly-timeline .fog {
+    background: #757575;
+    color: white; }
+  .hourly-timeline .cloudy,
+  .hourly-timeline .wind {
+    background: #ffb300; }
 
 .bottom {
-  margin-top: 3ex; }
+  margin-top: 5ex; }
 
 @keyframes App-logo-spin {
   from {

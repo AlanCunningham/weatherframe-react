@@ -15,9 +15,6 @@ class App extends Component {
           <div className="middle">
               <Weather/>
           </div>
-          <div className="bottom">
-              Bottom
-          </div>
       </div>
     );
   }
