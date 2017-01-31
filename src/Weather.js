@@ -25,10 +25,10 @@ class Weather extends Component {
     }
 
     componentDidMount() {
-        // this.timerID = setInterval(
-        //     () => this.tick(),
-        //     10000
-        // );
+        this.timerID = setInterval(
+            () => this.tick(),
+            900000
+        );
     }
 
     componentWillUnmount() {
@@ -136,24 +136,53 @@ class Weather extends Component {
     }
 
     get_icon_colour(icon) {
+        switch(icon) {
+            case "rain":
+            case "sleet":
+                return "#0288d1";
 
+            case "partly-cloudy-night":
+            case "clear-night":
+                return "#0d47a1";
+
+            case "clear-day":
+            case "partly-cloudy-day":
+                return "#ffb300";
+
+            case "cloudy":
+            case "wind":
+            case "fog":
+                return "#9e9e9e";
+
+            case "snow":
+                return "90a4ae";
+
+            default:
+                return "#0288d1"
+
+        }
     }
 
     render () {
         return (
             <div className="weather">
                 <div className="weather-summary">
-                    <p>{this.state.summary}</p>
+                    <div>{this.state.summary}</div>
                 </div>
                 <div className="middle-row">
                     <div className="temperature">
-                        <span className="current-temp">{Math.round(this.state.temp)}°</span>
+                        <span className="current-temp">
+                            {Math.round(this.state.temp)}°
+                        </span>
                         <span className="min-max-temp">
-                            {Math.round(this.state.temp_max)}°  |  {Math.round(this.state.temp_min)}°
+                            {Math.round(this.state.temp_min)}° | {Math.round(this.state.temp_max)}°
                         </span>
                     </div>
                     <div className="weather-icon">
-                        <Skycons color='black' icon={this.state.daily_icon} />
+                        <Skycons
+                            color={this.get_icon_colour(this.state.daily_icon)}
+                            icon={this.state.daily_icon}
+                        />
                     </div>
                     <div className="rain-chance">
                         <div className="chance-text">Chance of rain:</div>

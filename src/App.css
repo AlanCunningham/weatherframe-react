@@ -1,12 +1,15 @@
 body {
   color: white;
-  font-family: "Roboto"; }
+  font-family: "Roboto";
+  background: url("images/night.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover; }
 
 .top {
-  background: #378bbf;
-  box-shadow: 0 5px 5px 0 #d0d0d0;
-  padding: 2ex 0;
-  color: white; }
+  background: rgba(55, 139, 191, 0.29);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.12);
+  padding: 2ex 0; }
 
 .Clock {
   font-size: 150%;
@@ -20,16 +23,18 @@ body {
   align-items: center;
   position: relative;
   text-align: center;
-  color: black;
   margin: 0 3ex; }
   .middle .weather-summary {
-    font-size: 200%; }
+    margin: 1ex 0;
+    font-size: 180%; }
   .middle .middle-row {
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    margin-top: 5ex; }
     .middle .middle-row .weather-icon {
-      width: 35%; }
+      width: 35%;
+      margin: 0 3ex; }
     .middle .middle-row .current-temp {
       color: #0288d1;
       font-size: 3.5rem; }
@@ -42,7 +47,10 @@ body {
       font-size: 3rem; }
 
 .hourly-timeline {
-  margin-top: 4ex; }
+  position: fixed;
+  bottom: 2ex;
+  left: 0;
+  right: 0; }
   .hourly-timeline > div {
     display: inline-block;
     font-size: 95%; }
@@ -50,6 +58,8 @@ body {
     border-radius: 7px 0px 0px 7px; }
   .hourly-timeline > div:last-child {
     border-radius: 0px 7px 7px 0px; }
+  .hourly-timeline .hourly-time {
+    padding-top: 0.5ex; }
   .hourly-timeline .hourly-icon {
     padding: 1ex 0;
     width: 4em; }
@@ -72,15 +82,8 @@ body {
     color: white; }
   .hourly-timeline .cloudy,
   .hourly-timeline .wind {
-    background: #ffb300; }
-
-.bottom {
-  margin-top: 5ex; }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
+    background: #9e9e9e; }
+  .hourly-timeline .hourly-temp {
+    padding-bottom: 0.5ex; }
 
 /*# sourceMappingURL=App.css.map */
