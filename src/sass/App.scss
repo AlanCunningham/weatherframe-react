@@ -1,16 +1,12 @@
 body {
     color: white;
     font-family: "Roboto";
-    background: url("images/night.png") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
+    background: #223748;
 }
 
-
 .top {
-    background: rgba(55, 139, 191, 0.29);
-    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.12);
+    background: #1f3242;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.15);
     padding: 2ex 0;
 }
 
@@ -46,7 +42,7 @@ body {
         }
 
         .current-temp {
-            color: #0288d1;
+            // color: #0288d1;
             font-size: 3.5rem;
         }
 
@@ -59,7 +55,7 @@ body {
         }
 
         .chance-percentage {
-            color: #0288d1;
+            // color: #0288d1;
             font-size: 3rem;
         }
     }
@@ -96,37 +92,37 @@ body {
     }
 
     .clear-day {
-        background: #ffb300;
+        // background: #ffb300;
     }
 
     .clear-night,
     .partly-cloudy-night {
-        background: #0d47a1;
+        // background: #0d47a1;
         color: white;
     }
 
     .partly-cloudy-day {
-        background: #ffb300;
+        // background: #ffb300;
     }
 
     .rain,
     .sleet {
-        background: #0288d1;
+        // background: #0288d1;
         color: white;
     }
 
     .snow {
-        background: #90a4ae;
+        // background: #90a4ae;
     }
 
     .fog {
-        background: #757575;
+        // background: #757575;
         color: white;
     }
 
     .cloudy,
     .wind {
-        background: #9e9e9e;
+        // background: #9e9e9e;
     }
 
     .hourly-temp {

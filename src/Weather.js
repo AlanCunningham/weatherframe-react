@@ -180,7 +180,7 @@ class Weather extends Component {
                     </div>
                     <div className="weather-icon">
                         <Skycons
-                            color={this.get_icon_colour(this.state.daily_icon)}
+                            color="white"
                             icon={this.state.daily_icon}
                         />
                     </div>
