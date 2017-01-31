@@ -12,9 +12,7 @@ class App extends Component {
           <div className="top">
               <Clock/>
           </div>
-          <div className="middle">
-              <Weather/>
-          </div>
+        <Weather/>
       </div>
     );
   }

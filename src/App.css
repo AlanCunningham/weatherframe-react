@@ -13,60 +13,55 @@ body {
   display: flex;
   justify-content: space-around; }
 
-.middle {
+.weather {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   text-align: center;
-  margin: 0 3ex; }
-  .middle .weather-summary {
-    margin: 1ex 0;
+  margin: 0 3ex;
+  height: 85vh; }
+  .weather > div {
+    padding: 2ex 0; }
+  .weather .weather-summary {
     font-size: 180%; }
-  .middle .middle-row {
+  .weather .middle-row {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 5ex; }
-    .middle .middle-row .weather-icon {
+    align-items: center; }
+    .weather .middle-row .weather-icon {
       width: 35%;
       margin: 0 3ex; }
-    .middle .middle-row .current-temp {
+    .weather .middle-row .current-temp {
       font-size: 3.5rem; }
-    .middle .middle-row .min-max-temp {
+    .weather .middle-row .min-max-temp {
       font-size: 1.5rem; }
-    .middle .middle-row .chance-text {
+    .weather .middle-row .chance-text {
       font-size: 1.5rem; }
-    .middle .middle-row .chance-percentage {
+    .weather .middle-row .chance-percentage {
       font-size: 3rem; }
-
-.hourly-timeline {
-  position: fixed;
-  bottom: 2ex;
-  left: 0;
-  right: 0; }
-  .hourly-timeline > div {
+  .weather .hourly-timeline > div {
     display: inline-block;
     font-size: 95%; }
-  .hourly-timeline > div:first-child {
+  .weather .hourly-timeline > div:first-child {
     border-radius: 7px 0px 0px 7px; }
-  .hourly-timeline > div:last-child {
+  .weather .hourly-timeline > div:last-child {
     border-radius: 0px 7px 7px 0px; }
-  .hourly-timeline .hourly-time {
+  .weather .hourly-timeline .hourly-time {
     padding-top: 0.5ex; }
-  .hourly-timeline .hourly-icon {
+  .weather .hourly-timeline .hourly-icon {
     padding: 1ex 0;
     width: 4em; }
-  .hourly-timeline .clear-night,
-  .hourly-timeline .partly-cloudy-night {
+  .weather .hourly-timeline .clear-night,
+  .weather .hourly-timeline .partly-cloudy-night {
     color: white; }
-  .hourly-timeline .rain,
-  .hourly-timeline .sleet {
+  .weather .hourly-timeline .rain,
+  .weather .hourly-timeline .sleet {
     color: white; }
-  .hourly-timeline .fog {
+  .weather .hourly-timeline .fog {
     color: white; }
-  .hourly-timeline .hourly-temp {
+  .weather .hourly-timeline .hourly-temp {
     padding-bottom: 0.5ex; }
 
 /*# sourceMappingURL=App.css.map */
