@@ -39,6 +39,7 @@ class Weather extends Component {
         this.setState({
             weather: this.updateWeather()
         });
+
     }
 
     getUrl() {
@@ -65,6 +66,7 @@ class Weather extends Component {
             .then(res => {
                 var weather = res;
                 var daily_icon = this.get_fixed_icon(weather.daily.icon);
+                this.change_theme(daily_icon);
 
                 this.setState({
                     timezone: weather.timezone,
@@ -135,31 +137,53 @@ class Weather extends Component {
         return icon.toUpperCase().replace(/-/g , "_");
     }
 
-    get_icon_colour(icon) {
-        switch(icon) {
-            case "rain":
-            case "sleet":
-                return "#0288d1";
+    // Todo: Maybe move this somewhere else
+    change_theme(current_weather) {
+        var root = document.getElementById("root");
+        var is_night = true;
+        var hour = new Date().getHours();
 
+        // Check if it's nighttime
+        if (hour >= 7 && hour <= 20) {
+            is_night = false;
+        } else if (hour > 20 && hour <= 23 || hour >= 0 && hour < 7) {
+            is_night = true;
+        }
+
+        switch(current_weather.toLowerCase()) {
             case "partly-cloudy-night":
             case "clear-night":
-                return "#0d47a1";
+                root.className = "clear-night";
+                break;
 
             case "clear-day":
             case "partly-cloudy-day":
-                return "#ffb300";
+                root.className = "clear-day";
+                break;
+
+            case "rain":
+            case "sleet":
+                if (is_night) {
+                    root.className = "rain-night";
+                } else {
+                    root.className = "rain";
+                }
+                break;
 
             case "cloudy":
             case "wind":
             case "fog":
-                return "#9e9e9e";
-
             case "snow":
-                return "90a4ae";
+                if (is_night) {
+                    root.className = "cloudy-night";
+                } else {
+                    root.className = "cloudy";
+                }
+                break;
 
             default:
-                return "#0288d1"
-
+                root.className = "rain";
+                break;
         }
     }
 

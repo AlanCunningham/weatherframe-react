@@ -1,10 +1,30 @@
-body {
+#root {
   color: white;
   font-family: "Roboto";
+  background: #3d739e;
+  transition: background-color 3s ease;
+  overflow: hidden; }
+
+#root.clear-day {
+  background: #c17d00; }
+
+#root.clear-night {
+  background: #312248; }
+
+#root.rain {
+  background: #3d739e; }
+
+#root.rain-night {
   background: #223748; }
 
+#root.cloudy {
+  background: #8a8d90; }
+
+#root.cloudy-night {
+  background: #444648; }
+
 .top {
-  background: #1f3242;
+  background: rgba(31, 50, 66, 0.2);
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.15);
   padding: 2ex 0; }
 
