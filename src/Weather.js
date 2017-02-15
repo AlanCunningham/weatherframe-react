@@ -151,13 +151,13 @@ class Weather extends Component {
         }
 
         switch(current_weather.toLowerCase()) {
-            case "partly-cloudy-night":
-            case "clear-night":
+            case "partly_cloudy_night":
+            case "clear_night":
                 root.className = "clear-night";
                 break;
 
-            case "clear-day":
-            case "partly-cloudy-day":
+            case "clear_day":
+            case "partly_cloudy_day":
                 root.className = "clear-day";
                 break;
 
