@@ -65,7 +65,7 @@ class Weather extends Component {
             })
             .then(res => {
                 var weather = res;
-                var daily_icon = this.get_fixed_icon(weather.daily.icon);
+                var daily_icon = this.get_fixed_icon(weather.currently.icon);
                 this.change_theme(daily_icon);
 
                 this.setState({
