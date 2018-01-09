@@ -43,7 +43,7 @@ class Weather extends Component {
     }
 
     getUrl() {
-        var api_key = "65e2aabda502b2a4ae4793adcee989ad";
+        var api_key = "your_dark_sky_api_key";
         var lat = "51.4924920";
         var lon = "-0.2111690";
         var units = "uk2"
